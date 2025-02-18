@@ -11,7 +11,7 @@
 //   },[count])
 
 //   return(
-//     <div>
+//     <div>t,{use, useState} from "react";
 //       <p>Current Count: {count}</p>
 //       <p>prevCount: {prevCountRef.current}</p>
 
@@ -117,25 +117,44 @@
 // }
 // export default App;
 
+
+
+// function App(){
+//   const[isHovered, setIsHovered] = useState(false);
+//   const handleMouseEnter=()=>{
+//     setIsHovered(true);
+//   }
+//   const handleMouseLeave=()=>{
+//     setIsHovered(false);
+//   }
+
+//   return(
+//     <div>
+//       <button onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}
+//       style={{backgroundColor:isHovered ? 'lightblue':'lightgray',color:isHovered ? 'white':'black'}}
+//       >Hover</button>
+
+//       {isHovered && <p>Mouse is over the button</p>}
+//     </div>
+//   )
+// }
+// export default App;
+
 import React,{use, useState} from "react";
+import'./App.css';
 
-function App(){
-  const[isHovered, setIsHovered] = useState(false);
-  const handleMouseEnter=()=>{
-    setIsHovered(true);
-  }
-  const handleMouseLeave=()=>{
-    setIsHovered(false);
-  }
 
+function APP(){
+  const[key,setKey]=useState("");
+  const handleKeyDown=(event)=>{
+    setKey(event.key);
+  };
   return(
-    <div>
-      <button onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}
-      style={{backgroundColor:isHovered ? 'lightblue':'lightgray',color:isHovered ? 'white':'black'}}
-      >Hover</button>
-
-      {isHovered && <p>Mouse is over the button</p>}
+    <div className="app">
+      <h1>Welcome to maddineni it solutions</h1>
+      {key &&<h2>Pressed key:{key}</h2>}
+      <input type="text" onKeyDown={handleKeyDown} placeholder="pressed here"/>
     </div>
   )
 }
-export default App;
+export default APP;
